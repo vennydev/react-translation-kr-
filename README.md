@@ -6,7 +6,7 @@
 ---
 ### 상호작용 추가하기
 --- 
--  [\[번역\] 이벤트에 응답하기]() 
+-  [\[번역\] 이벤트에 응답하기](https://github.com/vennydev/react-translation-kr-/blob/main/translated/상호작용%20추가하기/이벤트%20반응하기.md) 
 -  [\[번역\] State: 컴포넌트의 메모리]() 
 -  [\[번역\] 렌더와 커밋]() 
 -  [\[번역\] 스냅샷으로써의 state]() 

@@ -39,9 +39,11 @@ setArtists( // Replace the state
 ```
 
 이제 잘 작동하네요:
+
 <https://codesandbox.io/s/1vkb9e?file=%2FApp.js&utm_medium=sandpack>
 
 이 Array spread 구문을 …artists 앞에 쓰면 아이템을 앞 쪽에 붙일 수도 있습니다.
+
 <https://codesandbox.io/s/m1jpw3?file=%2FApp.js&utm_medium=sandpack>
 
 ```javascript
@@ -55,6 +57,7 @@ setArtists([
 
 ### 배열에서 삭제하기
 배열에 항목을 삭제하는 가장 쉬운 방법은 필터링 하는 것 입니다. 즉 해당 항목을 포함하지 않는 새로운 배열을 만들어 볼겁니다. filter 메소드를 사용한 예시입니다:
+
 <https://codesandbox.io/s/2q2hmx?file=%2FApp.js&utm_medium=sandpack>
 
 “Delete”버튼을 몇번 클릭해보고 클릭 핸들러를 확인해보세요.
@@ -71,18 +74,21 @@ artists.filter(a => a.id !== artist.id) 은 “artist.id와는 다른 ID를 가�
 만약 배열의 특정 부분이나 모든 항목들을 바꾸고 싶다면, 새로운 배열을 생성하기 위해 `map()`을 사용할 수 있습니다. `map`에 넘길 함수는 배열의 데이터나 인덱스(혹은 둘다)를 기반으로하여 각각의 항목에 무엇을 할지 결정할 수 있습니다.
 
 이 예시에서 배열은 두 개의 원과 하나의 사각형의 좌표를 가지고 있습니다. 버트을 누르면 원들만 50픽셀 아래로 옮깁니다. 이것은 `map()`을 사용한 새로운 데이터의 배열을 생성함으로써 가능합니다:
+
 <https://codesandbox.io/s/crvphm?file=%2FApp.js&utm_medium=sandpack>
 
 ### 항목 교체하기
 특히나 배열에서 하나 또는 그 이상의 항목들을 교체해야하는 작업은 흔히 쓰이곤 합니다. `arr[0] = 'bird’`와 같은 할당은 원본 배열을 바꿉니다. 그래서 이것 대신 `map`을 사용하고 싶을 것 입니다.
 
 항목을 교체하기 위해서 `map`으로 새로운 배열을 생성해세요. `map`호출 내부에서 두 번째 인자로 항목의 인덱스를 받을 수 있습니다. 기존 항목(첫번 째 인자)을 반환할지 아니면 다른 것을 반환할지 정하려면 인덱스를 사용해보세요:
+
 <https://codesandbox.io/s/5qhfff?file=%2FApp.js&utm_medium=sandpack>
 
 ### 배열에 삽입하기
 또 어떨 땐 배열의 처음도 끝도 아닌 특정 위치에 항목을 삽입하고 싶을 수도 있습니다. 이를 위해선 `…` array spread구문과 함께 `slice()` 메소드를 사용합니다. `slice()` 메소드는 배열의 “슬라이스(조각)”를 잘라 낼 수 있습니다. 항목을 삽입하려면 삽입 지점 *앞의* 슬라이스, 새 항목, 원래 배열의 나머지 부분을 펼치는 배열을 만듭니다.
 
 아래 예시에선, 삽입 버튼은 새 항목을 항상 인덱스 **1**에 삽입합니다:
+
 <https://react.dev/learn/updating-arrays-in-state#write-concise-update-logic-with-immer>
 
 ### 배열에서 그 외에 다른 변경하기
@@ -91,6 +97,7 @@ spread 구문이나 `map()`이나 `fliter()` 같이 변경을 일으키지 않�
 **하지만 먼저 그 배열들을 복사한 다음엔 배열에 변경을 일으킬 수 있습니다.**
 
 예시입니다.
+
 <https://codesandbox.io/s/e3b91r?file=%2FApp.js&utm_medium=sandpack>
 
 위 코드에서 원본 배열의 복사본을 만들기위해 `[…list]` spread 구문을 사용합니다. 이제 우리는 복사본을 가지고 있고, `nextList.reverse()` 나 `nextList.sort()` 같이 변경을 일으키는 메소드들을 사용할 수 있게 되었네요. 심지어 `nextList[0] = "something"` 처럼 독립적인 항목들을 할당 할 수도 있겠네요.
@@ -112,6 +119,7 @@ setList(nextList);
 중첩된 state를 업데이트 할 때, 우리가 업데이트 하기를 원하는 지점부터 최상위 수준까지의 복사본을 만들어야 합니다. 이것이 어떻게 작동하는지 봐봅시다.
 
 두 개의 작품 리스트들이 같은 초기 state값을 갖고 있는 예시가 있습니다. 그것들은 분리되어 있어야 하지만 변경으로 인해서 그들의 state는 의도치 않게 공유될 것 입니다. 결과적으로 한 리스트가 다른 리스트에 영향을 주기때문에 박스에 체크가 될 것 입니다:
+
 <https://codesandbox.io/s/env1fs?file=%2FApp.js&utm_medium=sandpack>
 
 문제는 이 코드입니다.
@@ -155,7 +163,7 @@ setMyList(myList.map(artwork => {
 
 immer를 사용하여 **`artwork.seen = nextSeen`같은 변경이 어떻게 가능해진건지** 주목 해보세요:
 
-```
+```javascript
 updateMyTodos(draft => {
   const artwork = draft.find(a => a.id === artworkId);
   artwork.seen = nextSeen;

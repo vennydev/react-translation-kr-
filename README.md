@@ -16,5 +16,7 @@
 
 ### state 관리하기
 --- 
+-  [\[번역\] State 관리하기](https://github.com/vennydev/react-translation-kr-/blob/main/translated/Managing%20State/Managing%20State.md)
+
 ### Escape Hatches
 ---

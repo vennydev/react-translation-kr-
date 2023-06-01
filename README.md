@@ -17,6 +17,8 @@
 ### state 관리하기
 --- 
 -  [\[번역\] State 관리하기](https://github.com/vennydev/react-translation-kr-/blob/main/translated/Managing%20State/Managing%20State.md)
+-  [\[번역\] State 구조짜기](https://github.com/vennydev/react-translation-kr-/blob/main/translated/Managing%20State/Choosing%20the%20State%20Structure.md)
+
 
 ### Escape Hatches
 ---
